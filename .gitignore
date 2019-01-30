@@ -1,5 +1,5 @@
 .gitignore
-gluebirnen/
+/gluebirnen/
 test/
 puzzle_spiel/
 Nuraghen/
