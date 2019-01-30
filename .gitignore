@@ -1,10 +1,10 @@
 .gitignore
-/gluebirnen
-/test
-/puzzle_spiel
-/Nuraghen
-/mediabox
-/galerie*
+gluebirnen/
+test/
+puzzle_spiel/
+Nuraghen/
+mediabox/
+galerie*/
 *.txt
 *.xml
 *.pdf
