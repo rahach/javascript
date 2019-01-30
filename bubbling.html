@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>weitere tags</title>
+			<style type="text/css">
+				#outerB,#outerC {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				}
+				#middleB,#middleC {
+				width: 50%;
+				height: 50%;
+				position: relative;
+				top: 25%;
+				left: 25%;
+				background-color: green;
+				}
+				#innerB,#innerC {
+				width: 50%;
+				height: 50%;
+				position: relative;
+				top: 25%;
+				left: 25%;
+				background-color: blue;
+				}
+				#bubble, #capture { width: 45%; float:left;.margin-right: 15px;}
+			</style>
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript">
+			window.onload = function () {
+			document.getElementById("outerB").addEventListener("click", outerDivClick, false);
+			document.getElementById("middleB").addEventListener("click", middleDivClick, false);
+			document.getElementById("innerB").addEventListener("click", innerDivClick, false);
+			document.getElementById("clearButtonB").addEventListener("click", clearList);
+			
+			document.getElementById("outerC").addEventListener("click", outerDivClick, true);
+			document.getElementById("middleC").addEventListener("click", middleDivClick, true);
+			document.getElementById("innerC").addEventListener("click", innerDivClick, true);
+			document.getElementById("clearButtonC").addEventListener("click", clearList);
+			}
+			
+			function outerDivClick(e) {
+			appendText("outer Div Clicked",this.id);
+			e.stopPropagation();
+			}
+			function middleDivClick(e) {
+			appendText("middle Div Clicked",this.id);
+			e.stopPropagation();			
+			}
+			function innerDivClick(e) {
+			appendText("inner Div Clicked",this.id);
+			e.stopPropagation();
+			}
+			
+			function appendText(s,cont) {
+			var bereich = cont.slice(-1);
+			var li = document.createElement("li");
+			li.innerHTML = s;
+			document.getElementById("eventOrder"+bereich).appendChild(li);
+			}
+			function clearList() {
+			var bereich = this.id.slice(-1);
+			var ol = document.createElement("ol");
+			ol.id = "eventOrder"+bereich;
+			
+			document.getElementById("eventOrder"+bereich).innerHTML="";
+			}
+		</script>
+	</head>
+
+	<body id="bod">
+	<div id="bubble">
+	<h3>false - bubbling</h3>
+		<div id="outerB">
+		<div id="middleB" >
+		<div id="innerB">
+		</div>
+		</div>
+		</div>
+		<ol id="eventOrderB"> </ol>
+		<button type="button" id="clearButtonB">Clear</button>
+	</div>
+	
+	<div id="capture">
+	<h3>true - capture</h3>
+		<div id="outerC">
+		<div id="middleC" >
+		<div id="innerC">
+		</div>
+		</div>
+		</div>
+		<ol id="eventOrderC"> </ol>
+		<button type="button" id="clearButtonC">Clear</button>
+	</div>
+	</body>
+</html>

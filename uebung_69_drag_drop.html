@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung </title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<style>
+			#container {
+				border: solid;
+				width: 332px;
+				height: 332px;
+				margin-right: auto;
+				margin-left: auto;
+			}
+			.hole {
+				background-color: black;
+				border: solid;
+				width: 160px;
+				height: 160px;
+				float: left;
+			}
+			div.item {
+				font-size: 128px;
+				font-family: Arial, Helvetica, sans-serif;
+				width: 140px;
+				height: 140px;
+				background-color: #C0C0C0;
+				color: #FFFFFF;
+				text-align: center;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+			.dragging {
+				background-color: yellow;
+			}
+			.holeBackgr {
+					background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div id="hole1" class="hole">
+				<div id="item3" draggable="true" class="item">3</div>
+			</div>
+			
+			<div id="hole2" class="hole">
+				<div id="item2" draggable="true" class="item">2</div>
+			</div>
+			
+			<div id="hole3" class="hole">
+				<div id="item1" draggable="true" class="item">1</div>
+			</div>
+
+			<div id="hole4" class="hole"></div>
+		</div>
+	
+	<script src="../js/jquery/jquery-2.2.4.min.js"></script>
+	
+	<script>
+		var draggedItem;
+			$(document).ready(function () {
+			$('.item').on('dragstart', dragging);
+			$('.item').on('dragend', draggingEnded);
+			$('.hole').on('dragenter', machNix);
+			$('.hole').on('dragover', machNix);
+			$('.hole').on('drop', dropItem);
+		});
+		
+		function dragging(e) {
+			e.originalEvent.dataTransfer.setData('text','hello');
+			$(e.target).addClass('dragging');
+			draggedItem = $(e.target);
+		}
+		function draggingEnded(e) {
+			$(e.target).removeClass('dragging');
+			$(".hole").removeClass('holeBackgr');
+		}
+		
+		function machNix(e) {
+			$(e.target).addClass('holeBackgr');
+			e.preventDefault();
+		}
+		
+		function dropItem(e) {
+			var hole = $(e.target);
+			if (hole.hasClass('hole') && hole.children().length == 0) {
+			draggedItem.detach();
+			draggedItem.appendTo($(e.target));
+			}
+			e.preventDefault();			
+			check();			
+		}
+		
+		function check() {
+			flag = 1;
+			$(".hole").each(function(){
+			if($(this).children().length > 0) {
+				var itemId = $(this).find("div.item").attr("id");
+				var itemNr = itemId.substr(-1,1);
+				var holeNr= this.id.substr(-1,1);
+				
+				if(itemNr != holeNr) {
+					flag = 0;
+				}
+			}
+			});
+			if(flag==1) {alert("Fertig");}
+		}
+	</script>
+	
+	</body>
+</html>

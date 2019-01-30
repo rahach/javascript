@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style>
+			td {
+				width:100px;
+				height: 70px;
+				border: 1px solid silver;
+			}
+			th {
+				width:100px;
+				height: auto;
+				border: 1px solid silver;
+			}			
+			tr td:nth-child(even){
+				background-color:#eee;
+			}
+		</style>
+	</head>
+	<body>
+
+		<table>
+			<thead>
+				<tr><th>Col 1</th><th>Col 2</th><th>Col 3</th><th>Col 4</th></tr>			
+			</thead>
+			<tbody>
+				<tr><td></td><td></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td></td></tr>
+				<tr><td></td><td><td></td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td></td></tr>
+			</tbody>
+			<tfooter>
+				<tr><td></td><td></td><td></td><td></td></tr>				
+			</tfooter>	
+		</table>
+
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 38</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style>
+			main{
+				width:600px;
+				margin:0 auto 20px auto;
+				padding-bottom: 50px;
+				border: 1px solid blue;				
+			}
+			img{
+				float:left;
+				margin-right: 10px;
+			}
+			p {
+				border: 1px solid red;
+				width:250px;
+			}
+			p:last-of-type {
+				width:290px;
+				clear:left; /* right, both */
+			}		
+			div{
+				width:20%;
+				height:50px;
+				background-color: tomato;
+				margin:3px;
+				float:left;				
+			}	
+			div:last-of-type{
+				clear:both;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<h3>Float</h3>
+			<img src="../images/Desert_klein.jpg" alt="bla" />
+			<p>ABS 1: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est <strong>Lorem ipsum dolor sit amet</strong> ENDE.</p>
+			<p>ABS 2: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est <strong>Lorem ipsum dolor sit amet</strong> ENDE.</p>
+			<div>d1</div>
+			<div>d2</div>
+			<div>d3</div>
+			<div>d4</div>			
+		</main>
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+
+		</script>
+	</body>
+</html>

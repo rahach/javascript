@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 77</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<h3>Lorem Ipsum - Analyse</h3>
+		<p id="abs1">Anzahl aller Zeichen: </p>
+		<p id="abs2">Anzahl der Buchstaben: </p>
+		<p id="abs3">Anzahl der Whitespaces (Leerzeichen): </p>
+		<p id="abs4">Anzahl der Interpunktionen ( . , ; ! ? : ): </p>
+		<p id="abs5">Anzahl der Sonderzeichen ( &gt; &lt; / ): </p>
+	
+	<script src="../js/jquery/jquery-3.3.1.min.js"></script>
+	
+	<script>
+		$(document).ready(function() {
+			$.get("lorem_ipsum.txt", function(data) {
+			
+				var alle = data.length;
+				var buchstaben = 0;
+				var whitespaces = 0;
+				var interpunktionen = 0;
+				var sonderzeichen = 0;
+				
+				
+				for (var i = 0; i <= alle - 1; i++) {
+					
+					if (data[i].match(/[a-z]/i)) {
+						buchstaben++;
+					} else if (data[i].match(/[\s]/)) {
+						whitespaces++;
+					} else if (data[i].match(/[.,;!?:]/)) {
+						interpunktionen++;
+					} else if (data[i].match(/[><\/]/)) {
+						sonderzeichen++;
+					}
+				}
+				
+				$("#abs1").append(" " + alle);
+				$("#abs2").append(" " + buchstaben);
+				$("#abs3").append(" " + whitespaces);
+				$("#abs4").append(" " + interpunktionen);
+				$("#abs5").append(" " + sonderzeichen);
+				
+			});
+		});
+	</script>
+	
+	</body>
+</html>

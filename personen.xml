@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<personen>
+	<person>
+		<firstName>Rick</firstName>
+		<lastName>Delorme</lastName>
+		<hairColor>Brown</hairColor>
+		<eyeColor>Green</eyeColor>
+	</person>
+
+	<person>
+		<firstName>Erwin</firstName>
+		<lastName>Lottermann</lastName>
+		<hairColor>Blond</hairColor>
+		<eyeColor>Blau</eyeColor>
+	</person>
+</personen>

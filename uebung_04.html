@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 04</title>
+		
+		<style type="text/css">
+			blockquote {
+				font-style:italic;
+			}
+			/*
+			selector {
+				attribute: value;
+			}	
+			-- embedded-style --
+			*/
+			
+			
+			q {
+				font-family: Arial, sans-serif ;
+			}
+			
+			#mySpan {
+				font-weight: bold;
+			}
+			
+		</style>		
+		
+		<script>
+			window.alert("Erste Meldung!");
+		</script>			
+		
+	</head>
+	<body>
+	<h3>&lt;abbr&gt; Abbreviation</abbr></h3>
+	<div>Lorem ipsum <abbr>RTL</abbr> dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</div>
+	<h3>&lt;address&gt; Address</h3>
+	<div>Lorem ipsum dolor sit amet <address>Erwin Lottermann<br /> Parkallee 5<br /> 12345 Entenhausen</address> consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</div>	
+	<h3>&lt;blockquote&gt; Blockquote, Long Quotation mit Inline-Style</h3>
+	<div>Lorem ipsum dolor sit amet consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. <blockquote style="color:red;">At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</blockquote> At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est <strong>Lorem ipsum dolor sit amet</strong> ENDE.
+	<blockquote>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</blockquote>
+	</div>		
+	<h3>&lt;q&gt; Quotation</h3>
+	<div>Lorem ipsum dolor sit amet consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. <q>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</q> At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est <strong>Lorem ipsum dolor sit amet</strong> ENDE.
+	</div>		
+	<h3>&lt;span&gt; Generic Inline Container</h3>
+	<div>Lorem ipsum dolor sit amet consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. <span id="mySpan">At vero eos et accusam et justo duo dolores et ea rebum.</span> Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est <strong>Lorem ipsum dolor sit amet</strong> ENDE.
+	</div>		
+	
+	</body>
+	<script>
+		document.getElementById("mySpan").innerHTML= prompt("Hier Text eingeben");
+		//window.alert("Zweite Meldung!");		
+	</script>	
+</html>

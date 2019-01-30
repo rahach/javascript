@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 56 JSON</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div id="result">&nbsp;</div>
+	
+	<script src="../js/jquery/jquery-3.3.1.min.js"></script>
+	
+	<script>
+		var person = { firstName: 'Glenn', lastName: 'Johnson' };
+		var personen = new Array("Maier","Müller","Schulze");
+		
+		console.log(typeof person);
+		
+		var str = JSON.stringify(personen);
+		console.log(str);
+		
+			var x = $('#x').val();
+			var y = $('#y').val();
+			
+			var data = { "x": x, "y": y };
+			
+			$.ajax({
+			url: 'zeigeArray.txt',
+			type: 'GET',
+			cache: false,
+			success: function(data) {
+				var persArr = JSON.parse(data);
+				$('#result').html(persArr[1]);
+			}
+			});
+	</script>
+	
+	</body>
+</html>

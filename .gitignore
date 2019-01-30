@@ -1,0 +1,11 @@
+.gitignore
+/gluebirnen
+/test
+/puzzle_spiel
+/Nuraghen
+/mediabox
+/galerie*
+*.txt
+*.xml
+*.pdf
+!*

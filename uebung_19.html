@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 19</title>
+		<style>
+
+			table { border-collapse: collapse; margin: 0 auto; }
+			td, th {
+				border: 1px solid #aaaaaa;
+				width: 90px;
+				height: 30px;
+			}
+			.links { text-align: left; }
+			.mitte { text-align: center; }
+			.rechts { text-align: right; }
+			p.hervorgehoben { color: red; font-size: 25px; }
+			td.hervorgehoben { color: fuchsia; font-size: 10px; }			
+
+			thead th {
+				background-color: #BDEAFF;
+				width: 100px;
+			}
+			tbody th {
+				background-color: #FFFF99;
+			}
+			tfoot th {
+				background-color: #C2FE9A;
+			}
+			tfoot th:last-of-type {
+				text-align: right;
+			}
+			td {
+				text-align: center;
+			}
+			td:last-of-type {
+				text-align: right;
+			}
+			.verticalHeader {
+				background-color: yellow;
+			}
+			.verticalHeader2 {
+				background-color: yellow;
+			}
+
+		</style>
+	</head>
+	<body>
+	<h3>Tabellen</h3>
+
+	<table>
+		<colgroup>
+			<col />
+			<col span="2" class="verticalHeader" />			
+		</colgroup>		
+		<thead>
+			<tr>
+				<th class="links">Spalte 1</th>
+				<th class="links">Spalte 2</th>
+				<th class="links">Spalte 3</th>										
+			</tr>	
+		</thead>	
+		<tbody>			
+			<tr>
+				<td class="links hervorgehoben">Zelle 1</td>
+				<td class="links">Zelle 2</td>
+				<td class="links">Zelle 3</td>
+			</tr>	
+			<tr>
+				<td class="links">Zelle 1</td>
+				<td class="mitte">Zelle 2</td>
+				<td class="rechts">Zelle 3</td>
+			</tr>				
+		</tbody>		
+		<tfoot>
+			<tr>
+				<th class="links">Fuß 1</th>
+				<th class="links">Fuß 2</th>
+				<th class="links">Fuß 3</th>										
+			</tr>				
+		</tfoot>	
+	</table>
+	<p onmouseover="this.className='hervorgehoben'" >
+	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est <strong>Lorem ipsum dolor sit amet</strong> ENDE.
+	</p>	
+	</body>
+</html>

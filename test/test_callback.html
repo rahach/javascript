@@ -1,0 +1,32 @@
+<html>
+<head>
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<table id="fruitTable">
+<tr>
+<th>Fruit</th>
+<th>Inventory</th>
+</tr>
+</table>
+
+<script src="../../js/jquery/jquery-3.3.1.min.js"></script>		
+<script>
+
+function newOrder(orderId, orderShip, callback) {
+	document.write("New Order beiing processed<br>");
+	callback();
+	document.write("orderId: " + orderId);	
+}
+
+newOrder("333", "EXPRESS", function() {
+	document.write("newOrder function<br>");	
+;})
+
+
+
+</script>
+</body>
+</html>

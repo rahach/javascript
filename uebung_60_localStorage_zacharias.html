@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 60 localStorage</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div><label>Nachname: </label>
+		<input type="text" id="nachname" required="required" /></div>
+		
+		<div><label>Vorname: </label>
+		<input type="text" id="vorname" required="required" /></div>
+		
+		<div><label>Email: </label>
+		<input type="email" id="mail" required="required" /></div>
+		
+		<div><label>Geb.-Datum: </label>
+		<input type="text" id="geb_dat" required="required" placeholder="dd.mm.jjjj" pattern="^\d{2}\.[0-9]{2}\.[0-9]{4}$" maxlength="10" /></div>
+		
+		<div><button id="btn" type="button">Speichern</button></div>
+		
+		<h3>localStorage-items</h3>
+		<table>
+			<thead>
+				<tr><th>Nachname</th><th>Vorname</th><th>Email</th><th>Geb.-Datum</th></tr>
+			</thead>
+			<tbody id="ausgabe"></tbody>
+		</table>
+		
+		
+	<script src="../js/jquery/jquery-3.3.1.min.js"></script>
+	
+	<script>
+		$("#btn").click(function() {
+			var nachname = $("#nachname").val();
+			
+			var valArr = new Array();
+			valArr.push($("#vorname").val());
+			valArr.push($("#mail").val());
+			valArr.push($("#geb_dat").val());
+			
+			var valStr = JSON.stringify(valArr);
+			
+			if (isWebStorageSupported()) {
+			localStorage.setItem(nachname, valStr);
+			storageLesen();
+			}
+		});
+		
+		function storageLesen() {
+		var tableStr = "";
+			for(var i=0; i < localStorage.length; i++) {
+				var value = localStorage.getItem(localStorage.key(i));
+				var valArray = JSON.parse(value);
+				tableStr += "<tr>";
+				tableStr += "<td>"+localStorage.key(i)+"</td><td>"+valArray[0]+"</td><td>"+valArray[1]+"</td><td>"+valArray[2]+"</td>";
+				tableStr += "</tr>";
+			}
+			$("#ausgabe").html(tableStr);
+		}
+		
+		function isWebStorageSupported() {
+			return 'localStorage' in window;
+		}
+		
+		storageLesen();
+	</script>
+	
+	</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 18</title>
+		<style>
+			div {
+				display: inline-block;
+				width: 19.8%;
+				margin: 0;
+			}
+			#navi {
+				display: block;
+				width: 100%;
+			}
+			#navi ul {
+				margin: 0;
+				padding: 0;
+			}		
+			/*				
+			#navi ul li {
+				display: inline-block;				
+				list-style: none;
+				background-color: tomato;
+				margin-right: 10px;
+				width: 150px;
+				height: 30px;												
+			}
+			#navi ul li a {
+				text-decoration: none;
+				color: #ffffff;
+				display: block;
+				padding: 5px;
+			}
+
+
+			#navi ul li:hover a {
+				background-color: aqua;
+			}			
+			#navi ul li ul li{
+				display: block;
+				list-style: none;
+				background-color: gray;								
+			}			
+
+			#navi ul li ul{
+				display: none;
+			}			
+
+			#navi ul li:hover ul{
+				display: block;
+			}			
+*/
+		</style>
+	</head>
+	<body>
+
+		<div id="navi">	
+			<ul>
+				<li><a href="#">Menüpunkt 1</a></li>
+				<li><a href="#">Menüpunkt 2</a>
+					<ul> 
+						<li><a href="#">Sub-Menüpunkt 1</a></li>
+						<li><a href="#">Sub-Menüpunkt 2</a></li>		
+					</ul>	
+				</li>
+				<li><a href="#">Menüpunkt 3</a></li>						
+				<li><a href="#">Menüpunkt 4</a></li>										
+			</ul>
+		</div>							
+
+		<h3>Ordered List</h3>
+		<div>
+			<h4>"ol" - Standard</h4>
+			<ol>
+				<li>Listenpunkt 1</li>
+				<li>Listenpunkt 2</li>
+				<li>Listenpunkt 3</li>						
+				<li>Listenpunkt 4</li>						
+				<li>Listenpunkt 5</li>												
+			</ol>
+		</div>
+		<div>	
+			<h4>"ol" - mit Attr. "type"</h4>
+			<ol type="A">
+				<li>Listenpunkt 1</li>
+				<li>Listenpunkt 2</li>
+				<li>Listenpunkt 3</li>						
+				<li>Listenpunkt 4</li>						
+				<li>Listenpunkt 5</li>												
+			</ol>
+		</div>			
+		<div>	
+			<h4>"ol" - mit Attr. "type" und "start"</h4>
+			<ol type="A" start="4">
+				<li>Listenpunkt 1</li>
+				<li>Listenpunkt 2</li>
+				<li>Listenpunkt 3</li>						
+				<li>Listenpunkt 4</li>						
+				<li>Listenpunkt 5</li>												
+			</ol>
+		</div>			
+		<div>	
+			<h4>"ol" - mit Attr. "type='I'"</h4>
+			<ol type="I">
+				<li>Listenpunkt 1</li>
+				<li>Listenpunkt 2</li>
+				<li>Listenpunkt 3</li>						
+				<li>Listenpunkt 4</li>						
+				<li>Listenpunkt 5</li>												
+			</ol>
+		</div>			
+		<div>	
+			<h4>"ol" - mit Attr. "type='i'"</h4>
+			<ol type="i">
+				<li>Listenpunkt 1</li>
+				<li>Listenpunkt 2</li>
+				<li>Listenpunkt 3</li>						
+				<li>Listenpunkt 4</li>						
+				<li>Listenpunkt 5</li>												
+			</ol>
+		</div>		
+		<h3>Ordered/Unordered List verschachtelt</h3>	
+		<div>	
+			<h4>"ol" - mit Attr. "type='I'"</h4>
+			<ol type="I">
+				<li>Listenpunkt 1</li>	
+				<li>Listenpunkt 2
+					<ol type="i">
+						<li>Listenpunkt 2.1</li>
+						<li>Listenpunkt 2.2</li>						
+					</ol>
+				</li>
+				<li>Listenpunkt 3</li>						
+				<li>Listenpunkt 4
+					<ol type="square">
+						<li>Listenpunkt 4.1</li>
+						<li>Listenpunkt 4.2</li>						
+					</ol>
+				</li>						
+				<li>Listenpunkt 5</li>												
+			</ol>
+		</div>
+
+		<h3>Common Vehicles</h3>
+		<dl>
+			<dt>Boat</dt>
+			<dd>A small vehicle propelled on water by oars, sails, or an engine</dd>
+			<dt>Car</dt>
+			<dd>An automobile</dd>
+			<dd>A passenger vehicle designed for operation on ordinary roads
+			and typically having four wheels and an engine</dd>
+			<dt>Bicycle</dt>
+			<dt>Bike</dt>
+			<dd>A vehicle with two wheels in tandem, typically propelled by pedals
+			connected to the rear wheel by a chain, and having handlebars
+			for steering and a saddlelike seat</dd>
+		</dl>
+
+
+	</body>
+</html>

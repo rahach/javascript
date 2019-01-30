@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style></style>
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+
+			var btn;
+
+			function init(){
+				console.log("onload");
+				btn = document.getElementById("btn_1");
+				btn.addEventListener("click", sendData, false);
+			}
+
+			function sendData(evt){
+				console.log("sending data ..........");
+				btn.removeEventListener("click", sendData, false);
+				$(btn).attr("disabled", "disabled");
+			}
+
+
+			var hyperlink = document.getElementById('lnkSave');
+			hyperlink.addEventListener('click', saveData, false);
+
+			function saveData(e){
+			//save the data
+				e.preventDefault();
+			}
+
+			window.onload = init;
+			window.onunload = console.log("onunload");
+
+
+		</script>		
+	</head>
+	<body>
+
+		<h3></h3>
+		<button type="button" id="btn_1">Daten senden!</button>
+
+		<a id="lnkSave" href="#">test</a>
+
+
+	</body>
+</html>

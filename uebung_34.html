@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 34</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style></style>
+	</head>
+	<body>
+		<h3>HTML5 Gesamt&uuml;bersicht (Unterrichtsinhalte)</h3>
+
+		<h3>Neu in HTML5 sind folgende semantischen Container-Elemente</h3>
+		<p>
+			header, nav, main, section, article, aside, footer
+		</p>	
+
+		<p><em title="<em>">Das ist ein hervorgehobener Text mit <b title="<b>">&lt;em&gt;</b> - Der physische Auszeichner dazu ist: <b title="<b>">&lt;i&gt;</b> wie "italic"</em></p>
+
+		<p><em title="<strong>">Das ist ein stark betonter Text mit <b title="<b>">&lt;strong&gt;</b> - Der physische Auszeichner dazu ist: <b title="<b>">&lt;b&gt;</b> wie "bold"</em></p>
+
+		<p title="<p>">
+			Absätze werden mit <b>&lt;p&gt;</b> definiert. Diese sind Blockelemente, die keine weiteren Blockelemente enthalten dürfen. Sie besitzen im Browser-Style <span title="margin">Außen-Abstände</span> nach oben und unten.
+		</p>	
+
+		<div title="<div>">
+			Ein &lt;div&gt; - Division - ist ein Blockelement ohne Formatierungen. Kann alle weiteren HTML-Elemente enthalten.
+		</div>
+
+		<h1>
+			Das ist eine &lt;h1&gt; &Uuml;berschrift
+		</h1>
+
+		<h2>
+			Das ist eine &lt;h2&gt; &Uuml;berschrift
+		</h2>
+
+		<h3>
+			Das ist eine &lt;h3&gt; &Uuml;berschrift
+		</h3>
+
+		<div>
+			<a href="#">Das ist ein Hyperlink - &lt;a&gt;</a>
+			<p>
+				Ein Attribut "target" kann folgende Inhalte haben:
+			</p>
+			<ul>
+				<li>_blank - Open in a new browser window</li>
+				<li>_parent - Open in the parent frame or window</li>
+				<li>_self - Open in the current window or frame (default)</li>
+				<li>_top - Open in the topmost frame, thus replacing the contents of the window</li>
+				<li> iframe-Attribut "name" - Open in the &lt;iframe&gt; element with matching name attribute</li>
+			</ul>	
+		</div>
+
+		<hr title="Das ist eine horizontale Linie: <hr />">
+
+		<br /><!-- Das ist ein Zeilenumbruch -->
+
+		<p>
+			Eine Tabelle - &lt;table&gt; besteht in der Grundform aus folgenden Elementen
+		</p>
+
+		<pre>
+			<code title="<pre> mit <code>">
+&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+			</code>
+		</pre>
+
+		<p>caption, thead, tbody, tfoot, colgroup und th sind weitere Tabellen-Elemente</p>
+
+		<p><b>&lt; &gt; &amp;</b> sind in HTML reservierte Zeichen und müssen immer maskiert werden</p>
+
+		<h3>&lt;ul&gt;Unordered List</h3>
+		<ul>
+			<li>Listenpunkt</li>
+			<li>Listenpunkt</li>
+			<li>Listenpunkt</li>
+		</ul>
+
+		<h3>&lt;ol&gt;Ordered List</h3>
+		<ol>
+			<li>Listenpunkt</li>
+			<li>Listenpunkt</li>
+			<li>Listenpunkt</li>
+		</ol>
+
+		<h3>&lt;dl&gt; Description List</h3>
+		<dl>
+			<dt>description term &lt;dt&gt;</dt>
+			<dd>description &lt;dd&gt;</dd>
+			<dd>description &lt;dd&gt;</dd>			
+		</dl>
+
+		<p>
+			<img src="../images/Desert_klein.jpg" alt="Desert_klein.jpg" /> Images werden mit &lt;img&gt; definiert. Sie besitzen zwei Pflichtattribute: src und alt. Mögliche Formate sind: gif, jpg, png, svg. Images sind Inline-Elemente
+		</p>
+
+		<h3>Formularelemente</h3>
+
+		<p>Zum Senden der Formulardaten mit "submit" werden im form-tag folgende Attribute verwendet: action, method, enctype (nur bei File Upload)</p>
+
+		<p></p>
+
+		<p>form, input, label, select, option, textarea, button, fieldset, legend</p>
+
+		<p>Attribute type-values (alt): text, checkbox, radio, submit, reset, button, password, image, hidden, file (zusätzlich Attr. enctype Pflicht)</p>
+
+		<p>Attribut type-values (neu in HTML5): email, url, color, range, search, date, datetime, time, number, tel</p>
+
+		<p>datalist (Alternative zu select)
+			<form>
+				<label for="titel">Title</label>
+				<input list="myList" id="titel" name="titel"><br>
+				<datalist id="myList">
+					<option value="Doktor">					
+					<option value="Herr">
+					<option value="Frau">
+					<option value="Professor">
+				</datalist>
+			</form>
+		</p>
+
+		<h3>Imagemap</h3>
+		<p>Eine map-Definition beinhaltet ein oder mehrere &lt;area&gt;-Tags. Diese besitzen die folgenden Pflichtattribute: shape, coords, href, alt. Im Attribut Shape sind folgende Attribute möglich: rect circle, poly. Das Image wird mit einer Map über das Attribut "name" der Map und das Attribut "usemap" (# nicht vergessen) im &lt;img&gt; Tag verknüpft.</p>
+
+		<h3>Multimedia</h3>
+		<p>Video-Dateien werden mit dem HTML5-Element &lt;video&gt; und &lt;source&gt; eingebunden</p>
+		<p>Video Formate, die Browser unterstützen sind mp4, webm, ogv</p>
+		<p>Attribute des Video-Tags: width, height, src, autocomplete, controls, poster, loop, preload, muted</p>
+		<p>Audio-Dateien werden mit dem HTML5-Element &lt;audio&gt; und &lt;source&gt; eingebunden</p>
+		<p>Audio Dateien, die Browser unterstützen sind mp3, mp4, ogg, wav</p>
+
+		<p>Andere Multimedia-Dateien (z.B. Flash) werden mit dem HTML5-Element &lt;object&gt; und/oder &lt;embed&gt; eingebunden</p>		
+
+		<h3>Inline-Frames &lt;iframe&gt;</h3>
+		<p>Ein Iframe besitzt die Pflichattribute src, width und/oder height. Optional sind: seamless, sandbox</p>
+
+
+		<br /><br /><br /><br />
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+
+		</script>
+	</body>
+</html>

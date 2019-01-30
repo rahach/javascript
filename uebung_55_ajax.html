@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung </title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<p id="abs1">( lorem Ipsum (txt) laden )</p>
+		<p id="abs2">( lorem Ipsum (php) laden )</p>
+	
+	<script src="../js/jquery/jquery-3.3.1.min.js"></script>
+	
+	<script>
+		$("#abs1").click( function() {
+			$(this).load("lorem_ipsum.txt", foo);
+		});
+		
+		function foo() {
+			alert("Text wird geladen");
+		}
+		
+		$("#abs2").on("click", function() {
+			$.ajax({
+				url: 'show_lorem_ipsumx.php',
+				type: "POST",
+				data: "var1=Textanfang",
+				success: function(r) {
+					$("#abs2").html(r);
+				},
+				error: function() {
+					$("#abs2").html("keine Daten");
+				}
+			});
+		});
+		
+	</script>
+	
+	</body>
+</html>

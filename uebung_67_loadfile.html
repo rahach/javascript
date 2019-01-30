@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style></style>
+	</head>
+	<body>
+
+
+		<button id="btn">laden</button>
+		<div id="res"></div>
+
+	<script src="../js/jquery/jquery-3.3.1.min.js"></script>
+	
+	<script>
+
+		
+		$("#btn").on("click", function() {
+			$.ajax({
+				url: 'http://localhost/html/object_data.dat',
+				success: function(r) {
+
+				var myArray = JSON.parse(r);
+/*
+				$(myArray).each( function ( index, value ){
+						$("#res").append(value.model + "<br />");					
+						$("#res").append(value.make + "<br />");											
+						$("#res").append(value.year + "<br />");																	
+						$("#res").append("<br />");																							
+				})
+*/
+
+myArray2 = toArray(myArray[0]);
+console.log(toArray(myArray2));
+
+				},
+				error: function() {
+					$("#res").html("keine Daten");
+				}
+			});
+		});
+		
+function toArray(_Object){
+       var _Array = new Array();
+       for(var name in _Object){
+               _Array[name] = _Object[name];
+       }
+       return _Array;
+}
+
+	</script>
+	</body>
+</html>

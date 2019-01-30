@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 67</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+	
+	<script src="../js/jquery/jquery-3.3.1.min.js"></script>
+	
+	<script>
+		var car1 = {
+			year: 2000,
+			make: 'Ford',
+			model: 'Fusion',
+			getInfo: function () {
+				return 'Vehicle: ' + this.year + ' ' + this.make + ' ' + 	this.model;
+			}
+		}
+		var carStr = JSON.stringify(car1);
+		//console.log(carStr);
+		
+		
+		$.ajax({
+			url: '../js/object_data.dat',
+			type: 'GET',
+			cache: false,
+			success: function(data) {
+				var inputA = JSON.parse(data);
+					var car1 = inputA[0];
+					var car2 = inputA[1];
+					var car3 = inputA[2];
+					
+					/*
+					car3.prototype.getInfo = function() {
+						return 'Vehicle: ' + this.year + ' ' + this.make + ' ' + this.model;
+					}
+					*/
+					
+					document.write(car1.make + ", " + car1.model + ", " + car1.year + "<br />");
+					
+					document.write(car2.make + ", " + car2.model + ", " + car2.year + "<br />");
+					
+					document.write(car3.make + ", " + car3.model + ", " + car3.year + "<br />");
+					
+					document.write("typ: " + typeof car3);
+					//document.write("getInfo: " + car3.getInfo());
+			}
+			});
+			
+			
+	</script>
+	
+	</body>
+</html>

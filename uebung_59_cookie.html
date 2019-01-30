@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style></style>
+	</head>
+
+	<body>
+		<div id="ausgabe"></div>
+
+
+
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+			// setting the cookie value
+			function cookieSchreiben(cookieName, cookieValue, expirationDays) {
+				var expirationDate = new Date();
+				expirationDate.setDate(expirationDate.getDate() + expirationDays);
+				console.log(expirationDate);
+
+				cookieValue = cookieValue + "; expires=" + expirationDate.toUTCString();
+				document.cookie = cookieName + "=" + cookieValue;
+				console.log(cookieValue);								
+			}
+			// retrieving the cookie value
+
+			function cookieLesen(cookieName){
+				var cookies = document.cookie.split(";");
+
+				for (var i = 0; i < cookies.length; i++) {
+
+					var cookie = cookies[i];
+					var index = cookie.indexOf("=");
+					var key = cookie.substr(0, index);
+					var val = cookie.substr(index + 1);
+//						console.log(cookie)					
+					if ($.trim(key) == cookieName)
+
+					return val;
+				}
+			}
+
+			// usage
+			cookieSchreiben('cookie_1', 'dddddddddddd', 1);
+//			cookieSchreiben('cookie_2', 'gfd sgd fg dfg sd fg', 1);
+			$('#ausgabe').html("Ausgabe: " + cookieLesen("cookie_1"));
+		</script>
+	</body>
+</html>

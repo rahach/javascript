@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style></style>
+	</head>
+	<body>
+
+		<h3></h3>
+
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+
+			var erg;
+			function add(x, y=1) {
+				erg = x + y;
+				return erg;
+			}
+
+			var a = 5;
+			var b = 10;
+			var c = add(a,b);
+			//var d = add(a);
+
+			document.write("Funktion add() liefert: " + c + "<br />" );
+			//document.write("Funktion add() liefert: " + d + "<br />" );
+			document.write("Funktionsvariable erg liefert: " + erg + "<br />" );			
+
+
+			var sub = function (a,b){
+				return b-a;
+			}
+
+
+
+			var g = sub(a,b);
+
+			document.write("var sub liefert: " + g + "<br />" );
+			document.write("var sub : " + typeof sub + "<br />" );
+
+			var myBool = true;
+			var myBool2 = false;
+/*
+			if(confirm("Klicken Sie \"OK\" oder \"Abbrechen\"")){
+				document.write("OK");
+			}
+			else{
+				document.write("Abbrechen");
+			}
+*/
+			//var blabla = prompt("eingabe:");
+			//document.write(blabla + "<br />");
+
+/*
+			prompt = function(){
+				return "hello again";
+			}
+*/
+			//prompt();
+
+			//alert(prompt());
+
+/*
+			function areaOfPizzaSlice(diameter, slicesPerPizza) {
+				return areaOfPizza(diameter) / slicesPerPizza;
+
+				function areaOfPizza(diameter) {
+					var radius = diameter / 2;
+					return 3.141592 * radius * radius;
+				}
+			}
+
+			var flaeche = areaOfPizzaSlice(35,8);
+
+			document.write("Fläche des Pizza Stücks: " + flaeche + "<br />");
+
+
+			var age = prompt('Enter age', '');
+			document.write('You will soon be ' + (Number(age) + 1) + ' years old!<br />');			
+
+
+			var x = 10;
+			var y = 20;
+			document.write(x + y + "<br />");
+
+			document.write(String(x) + String(y) + "<br />");
+
+*/
+
+			var myVar = "";
+			
+
+			if(myVar == null){
+				document.write('myVar has a value' + "<br />");
+			}
+			else {
+				document.write('myVar does not have a value' + "<br />");
+			}
+
+			/*
+
+			var customer = prompt('Please enter your name');
+			document.write('Hello ' + (customer || 'Valued Customer') + "<br />");
+
+
+			var customer = prompt('Please enter your name');
+			var companyName = prompt('Please enter your company name');
+			document.write('Hello ' + (customer || companyName || 'Valued Customer') + "<br />");
+			*/
+
+			try{
+				add();
+				document.write('Made it, so undefinedFunction exists' + "<br />");
+			}
+			catch(ex){
+				document.write('The following error occurred: ' + ex.message + "<br />");
+			}
+			finally{
+				document.write('Finally block executed' + "<br />");
+			}
+
+
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style>
+			canvas {
+				border: 1px solid black;
+			}						
+		</style>
+	</head>
+	<body>
+
+		<canvas id="myCanvas" width="600" height="400"></canvas>
+
+
+
+
+
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+			$(document).ready(function () {
+				drawSomething();
+			});
+
+
+
+			function drawSomething() {
+				var leinwand = document.getElementById("myCanvas");
+				var ctx = leinwand.getContext('2d');
+				ctx.fillStyle = "red";				
+				ctx.fillRect(10, 50, 100, 200);
+				ctx.clearRect(6, 30, 60, 100);				
+
+				gradient = ctx.createRadialGradient(330, 20, 200, 0, 57, 45);
+				addColorStops(gradient);
+				ctx.fillStyle = gradient;
+
+				ctx.fillRect(100, 150, 400, 300);
+
+			}
+
+
+			function drawUsingCssColor() {
+				var canvas = document.getElementById('myCanvas')
+				, ctx = canvas.getContext('2d')
+				, offset = 10
+				, size = 50;
+				ctx.fillStyle = "red";
+				ctx.fillRect(offset + (0 * (offset + size)), offset, size, size);
+				ctx.fillRect(offset + (1 * (offset + size)), offset, size, size);
+				ctx.fillStyle = "#00FF00";
+				ctx.fillRect(offset + (2 * (offset + size)), offset, size, size);
+				ctx.fillRect(offset + (3 * (offset + size)), offset, size, size);
+				ctx.fillStyle = "rgba(0, 0, 255, 0.25)";
+				ctx.fillRect(offset + (4 * (offset + size)), offset, size, size);
+				ctx.fillRect(offset + (5 * (offset + size)), offset, size, size);
+			}
+
+			function addColorStops(gradient) {
+				gradient.addColorStop("0", "magenta");
+				gradient.addColorStop(".25", "blue");
+				gradient.addColorStop(".50", "green");
+				gradient.addColorStop(".75", "yellow");
+				gradient.addColorStop("1.0", "red");
+			}
+		</script>
+	</body>
+</html>

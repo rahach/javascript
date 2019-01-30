@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 71</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>Meier</li>
+			<li>Müller</li>
+			<li>Schulze</li>						
+			<li>Lottermann</li>									
+			<li>Hansen</li>												
+		</ul>
+
+	
+	<script src="../js/jquery/jquery-3.3.1.min.js"></script>
+	<script>
+		$(document).ready(
+
+		function foo(){
+			var namen = new Array();
+			$('li').each( function(){
+				namen.push($(this).html());			
+				$(this).remove();				
+			});
+
+			namen.sort();
+
+			var liste = document.getElementsByTagName("ul")[0];
+
+			for(var i=0;i<namen.length;i++){
+				var newLi = document.createElement("li");
+				newLi.textContent = namen[i];
+				liste.appendChild(newLi);
+			}
+
+		});
+	</script>
+	
+	</body>
+</html>

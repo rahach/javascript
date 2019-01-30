@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung </title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<style>
+			
+		</style>
+	</head>
+	<body>
+	<h3>Ausgabe Übung 60</h3>
+		<p id="result"></p>
+	
+	<script src="../js/jquery/jquery-3.3.1.min.js"></script>
+	
+	<script>
+		$(document).ready(function() {
+			window.addEventListener("storage", respondToChange, false);
+		});
+
+		function respondToChange(evt) {
+			$("#result").html("value: " + evt.newValue);
+			$("#result").append("<br />key: " + evt.key);
+		}
+	</script>
+	
+	</body>
+</html>

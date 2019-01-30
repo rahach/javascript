@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style></style>
+	</head>
+	<body>
+
+		<h3></h3>
+
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+
+
+			function getDistance(lat1, lon1, lat2, lon2) {
+//				var earthRadius = 3959; //miles
+				var earthRadius = 6371; //km				
+				var latRadians = getRadians(lat2 - lat1);
+				var lonRadians = getRadians(lon2 - lon1);
+				var a = Math.sin(latRadians / 2) * Math.sin(latRadians / 2) +
+				Math.cos(getRadians(lat1)) * Math.cos(getRadians(lat2)) *
+				Math.sin(lonRadians / 2) * Math.sin(lonRadians / 2);
+				var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+				var distance = earthRadius * c;
+				return distance;
+			}
+
+			function getRadians (latlongDistance) {
+				return latlongDistance * Math.PI / 180;
+			}
+
+
+			var lat1 = 54.1371157;
+			var lon1 = 8.8411483;
+			var lat2 = 53.548253700000004;
+			var lon2 = 10.0234306;			
+
+			document.write(getDistance(lat1,lon1,lat2,lon2));
+
+		</script>
+	</body>
+</html>

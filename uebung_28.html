@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 27</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<style>
+			td { width: 100px; 
+				height: 35px; 
+			}
+			tr:nth(odd) td {
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>Pseudoklassen</h3>
+
+		<div id="tabelle"></div>
+
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+			var tab = "<table>";
+			for(var i=1; i<25; i++) {
+				tab += "<tr><td></td><td></td><td></td><td></td><td></td></tr>";
+			}
+			tab += "</table>";
+			document.getElementById("tabelle").innerHTML = tab;
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

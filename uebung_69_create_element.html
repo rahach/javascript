@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style>
+			table{
+				width: 60%;
+
+			}
+			td{
+				height:20px;				
+			}
+			.odd{
+				background-color:red;
+			}
+			.even{
+				background-color:blue;				
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="d1"></div>
+
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+			$(document).ready(function(){
+
+				var tabelle = document.createElement("table");
+
+				document.getElementById("d1").appendChild(tabelle);
+				var k = 1;
+
+				for(var j=1;j<=10;j++){
+					var reihe = document.createElement("tr");
+					tabelle.appendChild(reihe);
+
+					for(var i=1;i<=10;i++){
+						var zelle = document.createElement("td");					
+						var inhalt = document.createTextNode(i*j);
+						reihe.appendChild(zelle);
+						zelle.appendChild(inhalt);
+						if(i%2==0){
+							zelle.setAttribute("class", "odd");
+						}	
+						else{
+							zelle.setAttribute("class", "even");						
+						}
+						k++;
+					}
+				}	
+			}); // end ready
+		</script>
+	</body>
+</html>

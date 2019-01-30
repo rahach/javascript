@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 40</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style>
+			#flexbox1 {
+				border: 1px solid red;
+				margin-top: 100px;
+				min-height: 15px;
+				display: -webkit-flex;
+				display: -ms-flex;
+				display: flex;				
+				flex-direction: -webkit-row-reverse;
+				flex-direction: -ms-row-reverse;
+				flex-direction: row-reverse;
+			}		
+			#flexbox1 > div {
+				width: 80px;
+				min-height: 80px;
+				border: 1px solid black;
+				margin: 5px;
+
+			}
+			#flexbox1 > div:nth-child(1) {
+				background-color: green;
+			}
+			#flexbox1 > div:nth-child(2) {
+				background-color: yellow;
+			}
+			#flexbox1 > div:nth-child(3){
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Übung Flexbox</h1>
+		<h3></h3>
+
+		<div id="flexbox1">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>			
+		</div>	
+
+
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+
+		</script>
+	</body>
+</html>

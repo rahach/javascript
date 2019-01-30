@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 77</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<h3>Lorem Ipsum - Analyse</h3>
+		<p id="abs1">Anzahl aller Zeichen: </p>
+		<p id="abs2">Anzahl der Buchstaben: </p>
+		<p id="abs3">Anzahl der Whitespaces (Leerzeichen): </p>
+		<p id="abs4">Anzahl der Interpunktionen (.,;!?:): </p>
+		<p id="abs5">Anzahl der Sonderzeichen (&gt; &lt; /): </p>
+	
+	<script src="../js/jquery/jquery-3.3.1.min.js"></script>
+	
+	<script>
+		var str = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est <strong>Lorem ipsum dolor sit amet</strong> ENDE.";
+		
+		var alleZ = str.length;
+		var leerZ = zaehle(" ");
+		var sonderZ = zaehle("<") + zaehle(">") + zaehle("/");
+		var interpZ = zaehle(".") + zaehle(",");
+		var nurB = alleZ - (leerZ+sonderZ+interpZ);
+		
+		$("#abs1").append(alleZ);
+		$("#abs2").append(nurB);
+		$("#abs3").append(leerZ);
+		$("#abs4").append(interpZ);
+		$("#abs5").append(sonderZ);
+		
+		function zaehle(suche) {
+			var i = 0;
+			var zaehler = 0;
+			for(var i=0;i<str.length;i++) {
+				if(str[i] === suche) {
+					zaehler++;
+				}
+			}
+			return zaehler;
+		}
+	</script>
+	
+	</body>
+</html>

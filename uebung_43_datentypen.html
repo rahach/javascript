@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 43</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style></style>
+	</head>
+	<body>
+
+		<h3>JS Datentypen</h3>
+
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+			var my_var1 = 15;
+			var my_var2 = "15";
+
+			document.write("my_var1: " + typeof my_var1 + " und my_var2: " + typeof my_var2 + "<br />");
+
+			if(my_var1 == my_var2){
+				document.write("my_var1 und my_var2 sind gleich<br />");
+			}			
+			if(my_var1 === my_var2){
+				document.write("my_var1 und my_var2 sind identisch<br />");
+			}						
+			else{
+				document.write("my_var1 und my_var2 sind nicht identisch<br />");
+			}						
+		</script>
+	</body>
+</html>

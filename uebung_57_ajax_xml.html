@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 57 xml</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div id="result">&nbsp;</div>
+	
+	<script src="../js/jquery/jquery-3.3.1.min.js"></script>
+	
+	<script>
+		$.post("personen.xml", function(data) {
+			console.log(data);
+			var personenArr = data.getElementsByTagName("person");
+			
+			var ausgabe = "<table>";
+			for(var i = 0; i < personenArr.length; i++) {
+				ausgabe += "<tr>";
+				ausgabe += "<td>"+personenArr[i].getElementsByTagName("firstName")[0].innerHTML+"</td>";
+				ausgabe += "<td>"+personenArr[i].getElementsByTagName("lastName")[0].innerHTML+"</td>";
+				ausgabe += "<td>"+personenArr[i].getElementsByTagName("hairColor")[0].innerHTML+"</td>";
+				ausgabe += "<td>"+personenArr[i].getElementsByTagName("eyeColor")[0].innerHTML+"</td>";
+				ausgabe += "</tr>";
+			}
+			ausgabe += "</table>";
+			
+			console.log(data);
+			//var xmlDoc = $.parseXML(data);
+			var xml = $(data);
+	
+			var person = xml.find("person");
+			console.log(person);
+			
+			person.each(function() {
+				fm = $(this).find("firstName").text();
+				console.log(fm);
+				$("#result").append(fm);
+				lm = $(this).find("lastName").text();
+				console.log(lm);
+				$("#result").append(lm);
+			});
+		});
+	</script>
+	
+	</body>
+</html>

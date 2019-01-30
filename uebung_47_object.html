@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 47</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style></style>
+	</head>
+	<body>
+
+		<h3>JS Objekte</h3>
+
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+			var car1 = {
+				year: 2000,
+				make: 'Ford',
+				model: 'Fusion',
+				getInfo: function () {
+					return 'Vehicle: ' + this.year + ' ' + this.make + ' ' + this.model;
+				}
+			};
+
+			var car2 = {
+				year: 2000,
+				make: 'Ford',
+				model: 'Fusion',
+				repairs: ['repair1', 'repair2', 'repair3'],
+				getInfo: function () {
+					return 'Vehicle: ' + this.year + ' ' + this.make + ' ' + this.model;
+				}
+			};
+
+
+			function getVehicle(theYear, theMake, theModel) {
+				var vehicle = new Object();
+				vehicle.year = theYear;
+				vehicle.make = theMake;
+				vehicle.model = theModel;
+				vehicle.getInfo = function () {
+					return 'Vehicle: ' + this.year + ' ' + this.make + ' ' + this.model;
+				};
+				return vehicle;
+			}
+
+			var vehicle = getVehicle(2010, "Mercedes", "E-KLasse");	
+			var vehicle2 = getVehicle(2010, "Ford", "Fusion");				
+			console.log(vehicle.getInfo());	
+			console.log(vehicle2.getInfo());	
+
+			console.log(car1.getInfo());
+			console.log(car2.repairs[2]);			
+
+		</script>
+	</body>
+</html>

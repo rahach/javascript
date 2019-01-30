@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 23</title>
+		<style>
+
+			div { margin-bottom: 10px; }
+			input:focus {
+				background-color: aliceblue;
+			}
+			label {
+				display: inline-block;
+				width: 150px;
+			}			
+			#ausg_2 {
+				width: 25px;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>Formular Elemente (alt)</h3>
+		<form method="post" action="http://10.10.56.134/formularversand2.php" enctype="multipart/form-data" >
+
+			<div>
+				<label for="eing_1">Text:</label>
+				<input type="text" id="eing_1" name="text_1" autofocus="autofocus" value="" />
+			</div>
+
+			<div>
+				<label for="eing_2">Textarea:</label>
+				<textarea maxlength="100" id="eing_2" name="text_2"></textarea>	
+				<input readonly="readonly" type="text" id="ausg_2" value="100" />
+			</div>
+
+			<div>
+				<label for="sel_1">Select:</label>
+				<select id="sel_1" name="auswahl">
+					<option value="">Bitte auswählen</option>					
+					<option value="de">Deutschland</option>
+					<option value="fr">Frankreich</option>
+					<option value="at">Österreich</option>										
+				</select>
+			</div>	
+
+			<div>
+				<label for="sel_2">Select (multiple):</label>
+				<select size="5" multiple id="sel_2" name="multiauswahl">
+					<option value="">Bitte auswählen</option>										
+					<option value="de">Deutschland</option>
+					<option value="fr">Frankreich</option>
+					<option value="at">Österreich</option>		
+					<option value="ch">Schweiz</option>																		
+				</select>
+			</div>	
+
+
+			<div>
+				<label for="check_1">Checkbox:</label>
+				<input type="checkbox" id="check_1" name="check_1" value="123" />
+			</div>
+
+			<div>
+				<label for="pass_1">Password:</label>
+				<input type="password" id="pass_1" name="pass_1" value="" />
+			</div>
+
+			<div style="display:none;">
+				<label for="hidden_1">Hidden:</label>
+				<input type="hidden" id="hidden_1" name="hidden_1" value="versteckt" />
+			</div>
+
+			<div>
+				<label for="file_1">File:</label>
+				<input type="file" id="file_1" name="datei" />
+			</div>
+
+			<div>
+				<label for="radio_1">Radiobutton:</label>
+				Ja:<input type="radio" id="radio_1" name="radio_1" />
+				Nein:<input type="radio" id="radio_2" name="radio_2" />
+				Vlt:<input type="radio" id="radio_3" name="radio_3" />								
+			</div>			
+
+			<input type="submit" value="Daten senden" />
+			<input type="reset" value="Daten zurücksetzen" />
+			<input type="button" value="Schaltfläche" />			
+
+			<input type="image" src="../images/images.png" alt="Daten senden" />			
+		</form>	
+
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+//			var inhalt_1 = document.getElementById('eing_1').value;
+			$("#eing_2").blur(function() {
+				var inhalt_1 = $("#eing_2").val();				
+			 	console.log(inhalt_1);				
+			});
+
+
+			$("#eing_2").keyup(function() {
+				var inhalt_1 = $("#eing_2").val();				
+				var rest = 100 - inhalt_1.length;
+				$("#ausg_2").val(rest);
+			});
+
+			$("#eing_2").blur(function() {
+				var inhalt_1 = $("#eing_2");				
+			 	console.log(inhalt_1);				
+			});
+
+
+			$("#eing_2").blur(function() {
+				var inhalt_1 = $("file_1");				
+			 	console.log(inhalt_1);				
+			});
+
+
+
+		</script>
+	</body>
+</html>

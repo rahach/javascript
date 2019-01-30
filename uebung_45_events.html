@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 45</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style>
+			div{
+				width: 600px;
+				height:300px;
+				background-color: yellow;
+			}
+			div div{
+				width: 200px;
+				height:100px;
+				background-color: red;
+			}			
+		</style>
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+
+			function init(){
+				var elem1 = document.getElementById('gelb');
+				var elem2 = document.getElementById('rot');
+
+				elem1.addEventListener('click', foo, true);
+				elem1.addEventListener('mousemove', go, true);			
+
+				elem2.addEventListener('click', foo, true);
+				//$("#rot").on("click",foo);
+
+			}
+			function foo(evt){
+				evt.stopPropagation();
+				console.log("div geklickt: " + this.id);
+			}
+
+			function go(evt){
+				console.log("mouse bewegt: " + this.id);				
+			}
+
+			window.onload = init;
+
+		</script>		
+	</head>
+	<body>
+
+		<h3>JS Events</h3>
+
+		<div id="gelb" >
+			<div id="rot" >
+				
+			</div>
+		</div>
+	</body>
+</html>

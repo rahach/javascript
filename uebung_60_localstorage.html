@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style></style>
+	</head>
+	<body>
+		<div>
+			<label>Nachname: </label>
+			<input type="text" id="nachname" required="required" />
+		</div>
+		<div>
+			<label>Vorname: </label>
+			<input type="text" id="vorname" required="required" />
+		</div>
+		<div>
+			<label>Email: </label>
+			<input type="text" id="email" required="required" />
+		</div>
+		<div>
+			<label>Geb Datum: </label>
+			<input type="text" id="dob" required="required" placeholder="dd.mm.yyyy" pattern="^[0-9]{2}\.[0-9]{2}\.[0-9]{4}$" maxlength="10" />
+		</div>		
+		<div>
+			<button type="button" id="btn">Speichern</button>
+		</div>
+<br />
+<br />
+<br />
+<br />
+		<div id="table"></div>
+
+
+<iframe src="uebung_60_2.html"></iframe>
+
+
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+
+
+
+			$("#btn").click(function(){
+
+				var nachname = $("#nachname").val();
+
+				var valArr = new Array();
+				valArr.push($("#vorname").val());
+				valArr.push($("#email").val());
+				valArr.push($("#dob").val());
+
+				var valStr = JSON.stringify(valArr);
+
+				if (isWebStorageSupported()) {
+					localStorage.setItem(nachname, valStr);
+				}
+				writeTable();
+			});
+
+
+			function isWebStorageSupported() {
+				return 'localStorage' in window;
+			}
+
+
+			function writeTable(){
+				var output = "<table><tr><th>Nachname</th><th>Vorname</th><th>Email</th><th>DoB</th></tr>"; 
+				output += storageLesen();
+				output += "</table>";	
+				$("#table").html(output);
+			}
+
+			function storageLesen(){
+
+				var output = "";
+
+				for(var i = 0;i<localStorage.length;i++){				
+					var item = localStorage.getItem(localStorage.key(i));
+					var itemArray = JSON.parse(item);
+
+					output += "<tr><td>" + localStorage.key(i) + "</td>";
+					for(var j=0;j<itemArray.length;j++){
+  						output += "<td>" + itemArray[j] + "</td>";
+					}
+					output += "</tr>";
+				}
+				return output;
+			}
+
+
+
+
+			function respondToChange(e) {
+				console.log(e.newValue);
+			}
+
+			window.addEventListener('storage', respondToChange, false);
+
+		</script>
+	</body>
+</html>

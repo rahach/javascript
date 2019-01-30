@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style></style>
+	</head>
+	<body>
+
+		<div id="message"></div>
+		<div id="mapholder"></div>
+
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+
+			$(document).ready(function () {
+				getLocation();
+			});
+
+			function supportsGeolocation() {
+				return 'geolocation' in navigator;
+			}
+
+			function showMessage(message) {
+				$('#message').html(message);
+			}
+
+
+			function getLocation() {
+				if (supportsGeolocation()) {
+					var options = {
+						enableHighAccuracy: true,
+						timeout: 3000,
+						maximumAge: 20000
+				};
+
+				navigator.geolocation.getCurrentPosition(showPosition, showError, options);
+
+				}
+				else {
+					showMessage("Geolocation is not supported by this browser.");
+				}
+			}		
+
+
+			function showPosition(pos) {
+				var datetime = new Date(pos.timestamp).toLocaleString();
+				showMessage("Latitude: " + pos.coords.latitude + "<br />"
+				+ "Longitude: " + pos.coords.longitude + "<br />"
+				+ "Timestamp: " + datetime + "<br />"
+				+ "Höhe: " + pos.coords.altitude + "<br />"
+				+ "Genauigkeit der Höhe: " + pos.coords.altitudeAccuracy + "<br />" 
+				+ "Genauigkeit der Position: " + pos.coords.accuracy);
+
+			    var latlon = pos.coords.latitude + "," + pos.coords.longitude;
+
+			    var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false&key=YOUR_:KEY";
+
+			    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+			}
+
+
+			function showError(error) {
+				switch (error.code) {
+					case error.PERMISSION_DENIED:
+						showMessge("User denied Geolocation access request.");
+						break;
+					case error.POSITION_UNAVAILABLE:
+						showMessage("Location information unavailable.");
+						break;
+					case error.TIMEOUT:
+						showMessage("Get user location request timed out.");
+						break;
+					case error.UNKNOWN_ERROR:
+						showMessage("An unknown error occurred.");
+						break;
+				}
+			}
+
+		</script>
+	</body>
+</html>

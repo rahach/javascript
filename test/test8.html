@@ -1,0 +1,37 @@
+<html>
+<head>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<script src="../../js/jquery/jquery-3.3.1.min.js"></script>		
+<script>
+
+function newOrder(orderId, orderDate){
+	this.orderId = orderId;
+	this.orderDate = orderDate;	
+}
+
+
+theOrder = new newOrder("79","hkh");
+
+console.log(theOrder);
+
+newOrder.prototype.newProperty = "newProperty";
+
+//theOrder = new newOrder("79","hkh");
+
+console.log(theOrder.newProperty);
+
+this.newOrder.newProperty = "newProperty";
+
+console.log(newOrder);
+
+
+</script>
+</body>
+</html>

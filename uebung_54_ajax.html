@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 54 ajax</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<style>
+			div.box {
+				width: 47%;
+				display: inline-block;
+				border: 2px solid silver;
+			}
+			div.box:first-of-type {
+				margin-right: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<form id="myForm" action="http://10.10.56.134/formularversand.php" method="get">
+				<div><label>zahl 1</label>
+				<input type="text" id="zahl1" name="zahl1" /></div>
+				
+				<div><label>zahl 2</label>
+				<input type="text" id="zahl2" name="zahl2" /></div>
+				<div>
+				<button type="submit">senden mit action</button>
+				<button type="button">senden AJAX GET</button>
+				<button type="button">senden AJAX POST</button>
+				</div>
+			</form>
+		</div>
+		
+		<div class="box" id="antwort">&nbsp;</div>
+	
+	<script src="../js/jquery/jquery-3.3.1.min.js"></script>
+	
+	<script>
+		if(window.XMLHttpRequest) {
+			var xhr = new XMLHttpRequest();
+		} else {
+			var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		var schalter = document.getElementsByTagName("button")[1];
+		schalter.onclick = senden;
+		
+		var schalter2 = document.getElementsByTagName("button")[2];
+		schalter2.onclick = sendenPost;
+		
+		function senden() {
+			//var daten = 'var1='+document.getElementById("zahl1").value;
+			//daten += '&var2='+document.getElementById("zahl2").value;
+			
+			var daten = $("#myForm").serialize();
+			window.alert(daten);
+			
+			var url = "http://10.10.56.134/formularversand.php?"+daten;
+			
+			xhr.open("GET", url, true);
+			xhr.onreadystatechange = auswertung;
+			xhr.send();
+		}
+		
+		function sendenPost() {	
+			var daten = $("#myForm").serialize();
+			window.alert(daten);
+			
+			var url = "http://10.10.56.134/formularversand.php";
+			
+			xhr.open("POST", url, true);
+			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhr.onreadystatechange = auswertung;
+			xhr.send(daten);
+		}
+		
+		function auswertung() {
+		document.getElementById("antwort").innerHTML = '<p style="text-align: center;"><img src="../images/loader.gif" alt="Daten werden geladen" /></p>';
+		
+			if(xhr.readyState == 4) {
+				console.log(xhr.response);
+				document.getElementById("antwort").innerHTML = xhr.responseText;
+			}
+		}
+	</script>
+	
+	</body>
+</html>

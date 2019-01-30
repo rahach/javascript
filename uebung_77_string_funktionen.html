@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style></style>
+	</head>
+	<body>
+
+		<h3>Lorem Ipsum Analyse</h3>
+		<p id="abs1">Anzahl aller Zeichen: </p>
+		<p id="abs2">Anzahl aller Buchstaben: </p>
+		<p id="abs3">Anzahl aller Whitespaces: </p>
+		<p id="abs4">Anzahl aller Interpunktionen: </p>
+		<p id="abs5">Anzahl aller Sonderzeichen: </p>
+								
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+
+			$(document).ready(function() {
+
+				jQuery.get('http://localhost/html/lorem_ipsum.txt', function(data) {
+
+					var chars = (data.match(new RegExp( ".","g")) || []).length;
+					$("#abs1").append(chars);
+					var letters = (data.match(new RegExp("[a-z]", "gi")) || []).length;
+					$("#abs2").append(letters);
+					var whitespaces = (data.match(new RegExp("\\s", "g")) || []).length;
+					$("#abs3").append(whitespaces);
+					var punctuation = (data.match(new RegExp("[,.;!?:]", "g")) || []).length;
+					$("#abs4").append(punctuation);
+					var specialchars = (data.match(new RegExp("[<>/]", "g")) || []).length;
+					$("#abs5").append(specialchars);
+
+				});
+			});
+
+		</script>
+	</body>
+</html>

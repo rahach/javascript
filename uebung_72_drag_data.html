@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style>
+			#d1, #d2 {
+				width:47%;
+				height:400px;
+				border: 1px solid red;
+				display:inline-block;
+			}
+			div.item {
+				width:90%;
+				margin-bottom:5px;
+				padding:3px 2px;
+				border: 1px solid blue;
+				background-color: #ddd;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="d1">
+			<div id="item_1" class="item" data-artNr="001" draggable="true">Luftballons</div>
+			<div id="item_2" class="item" data-artNr="002" draggable="true">Turnschuhe</div>
+			<div id="item_3" class="item" data-artNr="003" draggable="true">Fahrrad</div>						
+			<div id="item_4" class="item" data-artNr="004" draggable="true">Gummiboot</div>
+			<div id="item_5" class="item" data-artNr="005" draggable="true">Laptop</div>
+		</div>
+		<div id="d2">
+			<div class="item"></div>			
+		</div>
+
+		<script src="../js/jquery/jquery-2.2.4.min.js"></script>
+		<script>
+		$(document).ready(function () {
+			jQuery.event.props.push('dataTransfer');
+			$('.item').on('dragstart', dragging);
+			$('.item').on('dragend', preventDefault);			
+			$('#d2').on('dragenter', preventDefault);
+			$('#d2').on('dragover', preventDefault);
+			$('#d1').on('drop', dropItem);
+			$('#d2').on('drop', dropItem);			
+		});
+
+		function dragging(e) {
+			var val = e.target.getAttribute('data-artNr');
+			e.dataTransfer.setData('artNr', val);
+			e.dataTransfer.effectAllowed = 'copy';
+		}
+
+		function preventDefault(e) {
+			e.preventDefault();
+		}
+
+		function dropItem(e) {
+			var data = e.dataTransfer.getData('artNr');
+			console.log(data);			
+			if ($(e.target).attr("id")=="d2") {
+				var div = document.createElement('div');
+				div.textContent = data;
+				e.target.appendChild(div);
+			}
+			e.preventDefault();				
+		}
+
+		</script>
+	</body>
+</html>

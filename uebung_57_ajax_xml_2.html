@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung </title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+	
+	<script src="../js/jquery/jquery-3.3.1.min.js"></script>
+	
+	<script>
+		var xml='<Pages><Page Name="test"><controls>              <test>this is a test.</test></controls>  </Page>          <page Name = "User">           <controls>             <name>Sunil</name>           </controls>          </page>        </Pages>';
+				
+				xmlDoc = $.parseXML( xml );
+				xml = $( xmlDoc );
+				
+				$(xml).each(function(){
+					alert($(this).find("Page[Name]>controls>name").text());
+				});
+	</script>
+	
+	</body>
+</html>

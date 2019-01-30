@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style></style>
+	</head>
+	<body>
+
+
+
+
+
+		<meter value="0" min="0" max="4"></meter><span id="meter_counter">0</span> von 4
+		<form id="myForm">
+			<input type="hidden" name="aaaTN" value="hachmeier" />
+			<fieldset>
+    			<legend>Personalia:</legend>
+				    <label for="nachname">Nachname</label>*: <input type="text" size="30" name="nachname" required id="nachname" /><br>
+				    <label for="vorname">Vorname</label>*: <input type="text" size="30" name="vorname" required id="vorname" /><br>
+				    <label for="strasse">Straße</label>: <input type="text" size="10" name="strasse" id="strasse" /><br>
+				    <label for="wohnort">Wohnort</label>: <input type="text" size="10" name="wohnort" id="wohnort" /><br>
+				    <label for="mail">Email</label>*: <input type="text" size="10" name="mail" id="mail" required id="mail" /><br>				    				    
+				    <label for="tel">Telefonnummer</label>: <input type="text" size="10" name="tel" id="tel" /><br>				    				    				    
+				    <label for="alter">Alter</label>*: <input type="number" size="10" name="alter" id="alter" placeholder="Mindestalter 18 Jahre" required min="18" id="alter" />				    				    				    
+  			</fieldset>
+			<fieldset>
+    			<legend>Ihre Urlaubsreise:</legend>
+    				Wohin soll die Reise gehen?:<br>
+					<select form="myForm">
+						<option value="frankreich">Frankreich</option>
+						<option value="spanien">Spanien</option>
+						<option value="italien">Italien</option>
+						<option value="usa">USA</option>
+						<option value="china">China</option>						
+						<option value="thailand">Thailand</option>												
+					</select> <br>
+    				Abreisedatum:<br>
+					<input type="date" name="datum"><br>
+    				Anmerkungen:<br>
+					<textarea rows="5" cols="10" name="nachricht" form="myForm"></textarea><br>
+    				Wie sollen wir Sie benachrichtigen?<br>
+    				<input type="radio" name="kontakt" value="mail" checked />per Mail<br>
+    				<input type="radio" name="kontakt" value="post" />per Post<br>
+    				<input type="radio" name="kontakt" value="telefon" />per Telefon<br>    				
+  			</fieldset>
+  			<button type="reset" form="myForm" id="resetss" >zurücksetzen</button>
+  			<button type="button" form="myForm" id="send" >senden</button>
+		</form>
+
+		<div id="response"></div>
+
+
+
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script src="../js/uebungsaufgabe_04.js"></script>				
+		<script>
+
+		</script>
+	</body>
+</html>

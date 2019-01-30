@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style></style>
+	</head>
+	<body>
+		<h2>WebSocket Test</h2>
+		<label for="#txtMessage">Enter Message:</label> 
+		<input type="text" id="txtMessage" />
+		<button type="button" id="btnSend">Send</button><br />
+		<button type="button" id="btnClose">Close</button><br />		
+		<div id="divOutput"></div>
+
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+			var wsUri = 'wss://echo.websocket.org/';
+			var webSocket;
+			
+			$(document).ready(function(){
+				if(checkSupported()) {
+					connect();
+					$('#btnSend').click(doSend);
+				}
+			});
+
+			function writeOutput(msg) {
+//				var output = $("#divOutput");
+//				output.html(output.html() + '<br />' + msg);
+				$("#divOutput").append('<br />' + msg);
+			}
+
+			$("#btnClose").click(aus);
+
+			function aus(){
+				if(webSocket.readyState == webSocket.OPEN)	{
+					webSocket.close();
+					$('#btnClose').attr('disabled', 'disabled');										
+				}
+			}
+
+
+			function checkSupported() {
+				if(window.WebSocket){
+					writeOutput('WebSockets supported!');
+					return true;
+				}else {
+					writeOutput('WebSockets NOT supported');
+					$('#btnSend').attr('disabled', 'disabled');
+					return false;
+				}
+			}
+
+			function connect() {
+				webSocket = new WebSocket(wsUri);
+				webSocket.onopen = function (evt) { onOpen(evt) };
+				webSocket.onclose = function (evt) { onClose(evt) };
+				webSocket.onmessage = function (evt) { onMessage(evt) };
+//				webSocket.onerror = function (evt) { onError(evt) };
+				webSocket.onerror = function (evt) { 
+					writeOutput('ERROR: ' + evt.data);					
+				};				
+			}
+
+			function doSend() {
+				if(webSocket.readyState != webSocket.OPEN)	{
+					writeOutput("NOT OPEN: " + $('#txtMessage').val());
+					return;
+				}
+				writeOutput("SENT: " + $('#txtMessage').val());
+				webSocket.send($('#txtMessage').val());
+			}
+
+			function onOpen(evt) {
+				writeOutput("CONNECTED");
+			}
+
+			function onClose(evt) {
+				writeOutput("DISCONNECTED");
+			}
+
+			function onMessage(evt) {
+				writeOutput('RESPONSE: ' + evt.data);
+			}
+
+			function onError(evt) {
+				writeOutput('ERROR: ' + evt.data);
+			}
+
+
+		</script>
+	</body>
+</html>

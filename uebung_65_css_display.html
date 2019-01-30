@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style>
+			ul{
+				list-style-type: none;				
+				margin:0;
+				padding:0;
+			}
+			li{
+				padding: 3px 5px;
+				border:1px solid blue;
+				width: 24%;
+			}
+			#menuA li{
+				display:inline-block;
+			}
+			#menuB li{
+				float:left;
+				margin-right: 5px;
+			}			
+			#menuB li:last-of-type{
+				margin-right: 0;				
+			}						
+			#menuC{
+				display:table;
+				width:100%;
+			}						
+			#menuC li{
+				display:table-cell;
+				float:left;
+				margin-right: 5px;				
+			}		
+			#menuC li:last-of-type{
+				margin-right: 0;				
+			}																
+		</style>
+	</head>
+	<body>
+		<p>horizontales Menü A</p>
+		<ul id="menuA">
+			<li><a href="#">Menüpunkt 1</a></li>
+			<li><a href="#">Menüpunkt 2</a></li>
+			<li><a href="#">Menüpunkt 3</a></li>						
+			<li><a href="#">Menüpunkt 4</a></li>									
+		</ul>	
+		<p>horizontales Menü B</p>
+		<ul id="menuB">
+			<li><a href="#">Menüpunkt 1</a></li>
+			<li><a href="#">Menüpunkt 2</a></li>
+			<li><a href="#">Menüpunkt 3</a></li>						
+			<li><a href="#">Menüpunkt 4</a></li>									
+		</ul>	
+		<p>horizontales Menü C</p>
+		<ul id="menuC">
+			<li><a href="#">Menüpunkt 1</a></li>
+			<li><a href="#">Menüpunkt 2</a></li>
+			<li><a href="#">Menüpunkt 3</a></li>						
+			<li><a href="#">Menüpunkt 4</a></li>									
+		</ul>					
+
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+
+		</script>
+	</body>
+</html>

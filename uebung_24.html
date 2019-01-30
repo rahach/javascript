@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 24</title>
+		<style>
+			div { margin-bottom: 10px; }
+			input:focus {
+				background-color: aliceblue;
+			}
+			label {
+				display: inline-block;
+				width: 150px;
+			}
+			#ausg_2 {
+				width: 25px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<h3>Formularelemente neu in HTML5</h3>
+		<form method="get" action="http://10.10.56.134/formularversand2.php" >
+			
+			<div>
+				<label for="mail">Email:</label>
+				<input type="email" id="mail" name="email" pattern="^[a-zA-Z0-9\.\-_]{2,}@[a-zA-Z0-9\-\.]{2,}\.[a-zA-Z]{2,}$" autofocus="autofocus" autocomplete="off" />		
+			</div>
+
+			<div>
+				<label for="farbe">Color:</label>
+				<input type="color" id="farbe" name="farbe" value="#FF0000" />		
+			</div>
+
+			<div>
+				<label for="datum">Date:</label>
+				<input type="date" id="datum" name="datum" value="" placeholder="tt.mm.jjjj" pattern="^[1-31]\.[1-12]\.[0-9]{4}$" />		
+			</div>			
+
+			<div>
+				<label for="zahl">Number:</label>
+				<input type="number" id="zahl" name="zahl" value="" min="1" max="6" list />		
+			</div>			
+
+			<div>
+				<label for="bereich">Bereich:</label>
+				<input type="range" id="bereich" name="bereich" value="" min="1" max="200" step="5" onmousemove="$('#ausg_2').val(this.value);" />		
+<!--				<input type="range" id="bereich" name="bereich" value="" min="1" max="200" step="5" onmousemove="document.getElementById('ausg_2').value=this.value;" />		-->
+				<input readonly="readonly" type="text" id="ausg_2" value="" />								
+			</div>			
+
+			<div>
+				<label for="homepage">URL:</label>
+				<input type="url" id="homepage" name="homepage" pattern="^(http://|https://)[a-zA-Z0-9\-\.]{2,}\.[a-zA-Z]{2,}$" />		
+			</div>			
+
+			<button type="submit">
+				<img src="../images/images.png" height="25" alt="send" /><br />
+				<b>Daten senden</b>
+			</button>				
+			
+
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+
+		</form>	
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style>
+			textarea{
+				width:45%;
+				height:400px;
+			}
+
+		</style>
+	</head>
+	<body>
+
+		<h3>Morse Übersetzer</h3>
+
+		<textarea id="de"></textarea>
+
+		<textarea id="morse" readonly="readonly"></textarea>
+
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script src="http://10.10.56.134/js/morse_array.js"></script>				
+		<script>
+			var target = $('#de');
+
+			target[0].addEventListener('keypress', keyGotPressed, false);
+			function keyGotPressed (e){
+				var keyString = e['key'];
+				$("#morse").append(codeArray[keyString.toLowerCase()]);
+			}
+		</script>
+	</body>
+</html>

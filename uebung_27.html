@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung 27</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<style>
+			p::first-letter {
+				font-size: 1.5rem;
+				color: red;
+				font-family:myFont;
+			}
+			p::first-line {
+				color: blue;
+			}			
+			a::before{
+				content: "Achtung Link:";
+				margin-right: 5px;
+				color: red;
+				font-family:myFont;				
+			}
+			a[href^="http"]::after{
+				margin-left: 5px;
+				content: url("../images/external_link.gif");
+			}			
+		</style>
+	</head>
+	<body>
+		<h3>Pseudoelemente</h3>
+
+			<p>Lorem ipsum dolor sit amet, <a href="#">consetetur sadipscing</a> elitr, sed diam nonumy eirmod tempor invidunt ut labore et erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea <a href="http://www.bild.de">BILD</a> takimata sanctus est <strong>Lorem ipsum dolor sit amet</strong> ENDE.</p>
+
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

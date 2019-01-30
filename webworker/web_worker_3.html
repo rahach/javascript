@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>weitere tags</title>
+		<style>
+			div {width:30%; height:400px; border:1px solid gray; float:left; overflow:auto; margin: 10px;}
+		</style>
+		<script src="../../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script type="text/javascript">
+			var worker1 = new Worker("js/worker_31.js");
+				
+			$(document).ready(function() {
+
+				$('#btnSend1').click(function() {
+
+					var x = $("#work1Zahl1").val();						
+					var y = $("#work1Zahl2").val();
+
+					worker1.postMessage([x,y]);
+
+				});
+
+
+			});
+			
+			worker1.onmessage = function(event){
+				$('#result1').append(event.data + " - ");
+			}
+			
+
+		</script>
+	</head>
+		
+	<body>
+
+		<div class="container">
+			<div>
+				<input type="number" id="work1Zahl1">
+				<input type="number" id="work1Zahl2">				
+				<button id="btnSend1" type="button">START</button><br />
+			</div>	
+			<div id="result1"></div>
+		</div>
+
+		<div class="container">
+			<div>
+				<input type="number" id="work2Zahl1">
+				<input type="number" id="work2Zahl2">				
+				<button id="btnSend2" type="button">START</button><br />
+			</div>	
+			<div id="result2"></div>
+		</div>
+
+		<div class="container">
+			<div>
+				<input type="number" id="work3Zahl1">
+				<input type="number" id="work3Zahl2">				
+				<button id="btnSend3" type="button">START</button><br />
+			</div>	
+			<div id="result3"></div>
+		</div>
+
+	</body>
+</html>

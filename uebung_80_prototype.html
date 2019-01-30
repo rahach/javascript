@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Übung</title>
+		<link href="../css/basic_style.css" rel="stylesheet" type="text/css" />
+		<link href="../css/basic_print_style.css" rel="stylesheet" type="text/css" media="print" />				
+		<style></style>
+	</head>
+	<body>
+		<p id="ausgabe"></p>
+		<br>
+		<p id="ausgabe2"></p>
+
+
+		<script src="../js/jquery/jquery-3.3.1.min.js"></script>		
+		<script>
+
+			var name = "Lottermann";	
+			var ausg1 = name.constructor;
+			document.getElementById("ausgabe").innerHTML = ausg1;
+			console.log(ausg1);
+
+
+
+			var namen = new Array("Erwin", "Marie");
+			var ausg2 = namen.constructor.prototype;
+			document.getElementById("ausgabe2").innerHTML = ausg2;			
+			console.log(ausg2);			
+		</script>
+	</body>
+</html>
